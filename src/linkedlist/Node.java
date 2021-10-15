@@ -1,8 +1,8 @@
 package linkedlist;
 
 public class Node {
-    int data;
-    Node next;
+    public int data;
+    public Node next;
 
     Node(int data) {
         this.data = data;

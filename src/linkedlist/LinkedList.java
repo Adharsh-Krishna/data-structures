@@ -1,7 +1,7 @@
 package linkedlist;
 
 public class LinkedList {
-    Node head;
+    public Node head;
 
     public LinkedList() {
         this.head = null;
@@ -75,6 +75,20 @@ public class LinkedList {
         } catch( Exception e) {
             System.out.println("Invalid operation");
         }
+    }
+
+    public void removeLast() {
+        if (this.head == null) return;
+        if (this.head.next == null) {
+            this.head = null;
+            return;
+        }
+
+        Node current = this.head;
+        while (current.next.next != null) {
+            current = current.next;
+        }
+        current.next = null;
     }
 
     public int length() {
