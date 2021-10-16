@@ -3,8 +3,8 @@ package queue;
 public class CircularArrayQueue implements Queue {
     int capacity = 0;
     int[] arr;
-    int head, tail;
-    int length = 0;
+    public int head, tail;
+    public int length = 0;
 
     public CircularArrayQueue(int capacity) {
         this.head = this.tail = -1;
@@ -59,11 +59,23 @@ public class CircularArrayQueue implements Queue {
         return this.length;
     }
 
-    public int head() {
+    public int getHead() {
         return this.head == -1 ? this.head : this.arr[this.head];
     }
 
-    public int tail() {
+    public int getTail() {
         return this.tail == -1 ? this.tail : this.arr[this.tail];
+    }
+
+    public boolean isEmpty() {
+        return this.head == -1;
+    }
+
+    public boolean isFull() {
+        return (this.tail+1) % this.capacity == this.head;
+    }
+
+    public boolean isLast() {
+        return !this.isEmpty() && this.head == this.tail;
     }
 }
